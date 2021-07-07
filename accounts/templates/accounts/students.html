@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+    
+<form action="" method="post">
+    {% csrf_token %}
+
+    {% for subject in subjects %}
+    <input type="text" id="subject" name="subject" value="{{subject.id}}">
+    <p>addding marks in {{subject.id}} {{subject.subject}}</p>
+    {% endfor %}
+    
+    <table border="1" cellpadding="5">
+        <tr>
+            <td>Student Id</td>
+            <td>Name</td>
+            <td>Marks</td>
+            <td>class</td>
+        </tr>
+        {% for student in students %}
+        <tr>
+        <td><input type="text" id="student" name="student" value="{{student.id}}"></td>
+        <td> {{student.name}}</td>
+        <td><input name="marks"></td>
+        <td>{{student.grade}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button name="addMarks">Save</button>
+</form>
+</body>
+</html>

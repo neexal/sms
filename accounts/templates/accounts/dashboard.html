@@ -1,1 +1,33 @@
-<h1> thi si shome</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <select class="form-control" name="grade" style="height:65px;">
+    {% for class in classes %}
+        
+        <option value="{{class.id}}" name="{{class.grade}}">{{class.grade}} </option>
+    {% endfor %}
+    </select>
+    <select class="form-control" name="subject" style="height:65px;">
+    {% for subject in subjects %}
+        
+        <option value="{{subject.id}}">{{subject.subject}} </option>
+        {% endfor %}
+    </select>
+
+    <button name= "createResult">go</button>
+</form>
+
+
+</body>
+
+</html>
